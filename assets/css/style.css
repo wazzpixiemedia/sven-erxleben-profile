@@ -47,6 +47,11 @@
 
 *,*::before,*::after{box-sizing:border-box}
 
+/* the hidden attribute must win over any display declaration below
+   (otherwise the closed .menu overlay covers the page and swallows
+   every click, hover and text selection) */
+[hidden]{display:none!important}
+
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
@@ -60,7 +65,7 @@ body{
   font-weight:400;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
-  /* overflow-x:hidden; */
+  overflow-x:hidden;
 }
 
 h1,h2,h3,h4{
@@ -212,8 +217,8 @@ em{font-style:normal}
 .burger[aria-expanded="true"] span:nth-child(2){transform:translateY(-3.75px) rotate(-45deg);width:24px}
 
 /* mobile menu */
-.menu{position:fixed;inset:0;z-index:99;background:var(--paper);display:flex;align-items:flex-end;opacity:0;transition:opacity .4s var(--ease)}
-.menu.in{opacity:1}
+.menu{position:fixed;inset:0;z-index:99;background:var(--paper);display:flex;align-items:flex-end;opacity:0;pointer-events:none;transition:opacity .4s var(--ease)}
+.menu.in{opacity:1;pointer-events:auto}
 .menu__inner{width:100%;padding:0 var(--pad) clamp(28px,8vh,64px)}
 .menu__label{margin-bottom:1.25rem}
 .menu__list li{display:flex;align-items:baseline;gap:1rem;border-top:1px solid var(--line);padding:.85rem 0}
@@ -222,7 +227,7 @@ em{font-style:normal}
 .menu__foot{display:flex;flex-direction:column;gap:.5rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--line);
   font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.06em;color:var(--slate)}
 
-/* body.lock{overflow:hidden} */
+body.lock{overflow:hidden}
 
 /* ══════════════ HERO ══════════════ */
 .hero{position:relative;overflow:hidden;background:var(--paper)}
