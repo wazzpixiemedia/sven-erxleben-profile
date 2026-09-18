@@ -60,7 +60,7 @@ body{
   font-weight:400;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
-  overflow-x:hidden;
+  /* overflow-x:hidden; */
 }
 
 h1,h2,h3,h4{
@@ -222,7 +222,7 @@ em{font-style:normal}
 .menu__foot{display:flex;flex-direction:column;gap:.5rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--line);
   font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.06em;color:var(--slate)}
 
-body.lock{overflow:hidden}
+/* body.lock{overflow:hidden} */
 
 /* ══════════════ HERO ══════════════ */
 .hero{position:relative;overflow:hidden;background:var(--paper)}
